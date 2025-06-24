@@ -33,19 +33,35 @@ To analyze the data and determine that it is a good fit for our predicitions in 
 
 ![AverageDurationPerWeekday](https://github.com/user-attachments/assets/5da5ad2b-52fd-478c-8dec-02867388a137)
 
-
 ## Modeling
 
+To model the average bike ride duration per day based on date, day of the week, and daily weather conditions, we employ the SARIMAX model (Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors). We first consolidate all relevant variables, such as ride durations, weather metrics (e.g., temperature, humidity), and calendar features—into a single, time-indexed DataFrame. Before fitting the model, we assess the stationarity of the time series using statistical tests. Since the data meets the stationarity assumption, we proceed by splitting the dataset into training and testing sets, for accurate forecasting and evaluation.
+
+![DurationSeries](https://github.com/user-attachments/assets/3e0e2618-f44c-4a99-ac0e-7709fc3af02c)
+
+![CoutnSeries](https://github.com/user-attachments/assets/dae4ff36-2eb0-4d4e-b384-833c20b4498b)
 
 ## Evaluation
 
+![DurationForecast](https://github.com/user-attachments/assets/3579dfe6-b34e-4c8d-a5b6-c99654613e56)
+
+After fitting the original model to the training data and running the model on our testing data, we compare those predictions to the actual testing dataset.  The RMSE for this model is 2.71.
+
+After running a grid search, the updated model dropped the RMSE to 2.43.  These results tell us that, on average, the model's predictions are within 2.43 minutes of the actual daily average bike ride duration.  Based on the mean of the daily average bike ride duration, this is a 15.85% relative error.  These statistics indicate that this model is reasonably effective at capturing the relationship between weather, date and ride duration.
+
+Evaluating the model on number of bike rides per day rather than duration of bike rides did not provide us with a reasonable relationship.
 
 ## Conclusion
 
-
+Using this model to predict the duration of a ride given the day and weather patterns allows us to predict the use of bicycles in another town based on their weather patterns.
 
 ### Limitations and Next Steps
 
+The largest limitation in this analysis is that the demographics of the two cities are the same.  It would be a good next step to bring in studies regarding the city populations.  If the populations differ greatly on age, gender or activity level, we will want to adjust the model accordingly.
+
+Additionally, while our weather model was good for predicting the duration of a bike ride, it was not great for predicting the number of bike rides on a given day.  We will want to research and model what other factors could be influencing the number of rides in a given day.
+
+Using those two pieces of information we can predict how many bikes we will need in Merrytown.  We can determine how much money it will bring in based on the number rides and duration.  We can also determine if specials on poor weather days or offering commuter discounts would be beneficial.
 
 ## Repository Navigation
 
