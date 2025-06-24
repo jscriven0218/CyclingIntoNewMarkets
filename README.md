@@ -23,7 +23,7 @@ In a first step to analyzing the data, we clean it up - We removed outliers for 
 
 To analyze the data and determine that it is a good fit for our predicitions in Merrytown, we look at many things.  We examine the most common routes, number of rides per month and per day of week and duration of rides based on month and day of the week.
 
-![image](https://github.com/user-attachments/assets/0556d601-5cb9-4d04-80cb-a6a4e2b28dee)
+![StationMap](https://github.com/user-attachments/assets/0556d601-5cb9-4d04-80cb-a6a4e2b28dee)
 
 ![CountPerMonth](https://github.com/user-attachments/assets/bc54bae4-a62c-4505-a934-eedf85153dba)
 
