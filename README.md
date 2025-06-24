@@ -17,40 +17,28 @@ This data includes information on nearly 650,000 bicycle rides over 1,000 plus d
 In addition to the data on cycling, our analysis requires the weather information for the city over the same time span.  Austin KATT station has recorded that [data](https://www.kaggle.com/datasets/grubenm/austin-weather) and made it readily available on WeatherUnderground.com.  The weather data includes information on temperature, dew point, humidity, sea level, visibility, and wind.  Events such as thunderstorms, fog, and rain are also noted.   
 
 ### Data Preparation
-In a first step to make good recommendations, we remove any movie that has less than 5 reviews. Then, we normalize our ratings by using the mean rates for each user. Using the normalized ratings, we come up with a list of the 1,500 highest rated moves that will be our available movie set ready for recommending. This reduces the movies we have available from nearly 10,000 to 1,500 based on their ratings.
+In a first step to analyzing the data, we clean it up - We removed outliers for very long bike rides, which may be the result of a bike being lost or never returned.  We check for roundtrips that didn't last more than a minute, indicating the bike was not used, and removed those.
 
-![RatingDist](https://github.com/user-attachments/assets/9f3d2221-dd7b-4bad-8f0a-998f78e5d9e6)
+### Exporatory Data Analysis
 
-![NormalizedRatingDist](https://github.com/user-attachments/assets/c5954dc3-aed2-40a7-867b-2733679b2c21)
+To analyze the data and determine that it is a good fit for our predicitions in Merrytown, we look at many things.  We examine the most common routes, number of rides per month and per day of week and duration of rides based on month and day of the week.
+
+![BikeStationMap](https://github.com/user-attachments/assets/e26eab12-975f-4b35-a3ba-339a4b0f2578)
+
+
 
 ## Modeling
-To model the recommendations, singular value decomposition (SVD) is a collaborative filtering which is the process of making recommendations based on the preferences of other similar users. We utilize SVD by creating a matrix of rows representing each user and columns for each movie - with ratings, if reviewed, in the matrix. Using GridSearchCV, we tuned the parameters of the SVD model to confirm we were using the best model. We train our model on 70% of our total dataset.
+
 
 ## Evaluation
 
-After fitting the model to our training dataset, we run the model with our testing dataset.  Those predictions are compared to the actual testing dataset.  An RMSE of 0.8595 tells us that for a predicted rating, the real rating for that user and that movie, is within .8595.  While this is close to a point, it is generally considered a good score on a 5 point rating system.  Therfore, our model is a good predictor of ratings.
-
-The SVD model we ran with the best parameters as decided with the GridSearchCV model, dropped that RMSE to .8381.
-
-While RMSE is a good predictor of the model, we also used a Normalized Cumulative Gain (NDCG) score to evaluate the SVD model.  The NDCG of .988 is very high and means that the recommendations provided to the passengers are a very good fit.
-
-Using those predicted ratings, we rank the unwatched movies per user. The first top 5 recommended movies, that are also in the set of 1,500 that we have narrowed our library down to, are recommended to the user.
-
-Top recommendations for user 256:
-- Silence of the Lambs, The (1991) (Estimated rating: 4.62)
-- Star Wars: Episode V - The Empire Strikes Back (1980) (Estimated rating: 4.61)
-- Desperado (1995) (Estimated rating: 3.98)
-- For Love or Money (1993) (Estimated rating: 3.85)
-- Independence Day (a.k.a. ID4) (1996) (Estimated rating: 3.81)
-
-![SilenceOfTheLambs](https://github.com/user-attachments/assets/6a370c0e-4887-4887-9fb3-3feb19eca1f4)
 
 ## Conclusion
 
-Using a model to recommend movies to the passengers on our flights allows us to cut the cost of this service by only offering a subset of movies, while continuing to provide highly rated movies that fit with the passengers preferences.
+
 
 ### Limitations and Next Steps
-The largest limitation to a recommendation model is the cold start problem.  While we have completed this analysis assuming we have the movie preferences and ratings of all passengers on our flights, it is not practical.  Without those to begin with, our model is at a loss.  One way to address this problem is using demographic data.  A passenger's information such as age and gender may connect them to users already in the data.
+
 
 ## Repository Navigation
 
