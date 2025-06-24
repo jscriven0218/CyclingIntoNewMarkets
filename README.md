@@ -17,11 +17,13 @@ This data includes information on nearly 650,000 bicycle rides over 1,000 plus d
 In addition to the data on cycling, our analysis requires the weather information for the city over the same time span.  Austin KATT station has recorded that [data](https://www.kaggle.com/datasets/grubenm/austin-weather) and made it readily available on WeatherUnderground.com.  The weather data includes information on temperature, dew point, humidity, sea level, visibility, and wind.  Events such as thunderstorms, fog, and rain are also noted.   
 
 ### Data Preparation
-In a first step to analyzing the data, we clean it up - We removed outliers for very long bike rides, which may be the result of a bike being lost or never returned.  We check for roundtrips that didn't last more than a minute, indicating the bike was not used, and removed those.
+In a first step to analyzing the data, we clean it up - We removed outliers for very long bike rides, which may be the result of a bike being lost or never returned.  We check for roundtrips that didn't last more than a minute, indicating the bike was not used, and removed those. Our database is large enough that we can remove those records with missing information.
 
 ### Exporatory Data Analysis
 
 To analyze the data and determine that it is a good fit for our predicitions in Merrytown, we look at many things.  We examine the most common routes, number of rides per month and per day of week and duration of rides based on month and day of the week.
+
+![image](https://github.com/user-attachments/assets/0556d601-5cb9-4d04-80cb-a6a4e2b28dee)
 
 ![CountPerMonth](https://github.com/user-attachments/assets/bc54bae4-a62c-4505-a934-eedf85153dba)
 
