@@ -14,7 +14,7 @@ The city of Austin, Texas, comparable to Merrytown in population demographics, c
 
 This data includes information on nearly 650,000 bicycle rides over 1,000 plus different days.
 
-In addition to the data on cycling, our analysis requires the weather information for the city over the same time span.  Austin KATT station has recorded that data and made it readily available on WeatherUnderground.com.  The weather data includes information on temperature, dew point, humidity, sea level, visibility, and wind.  Events such as thunderstorms, fog, and rain are also noted.   
+In addition to the data on cycling, our analysis requires the weather information for the city over the same time span.  Austin KATT station has recorded that [data](https://www.kaggle.com/datasets/grubenm/austin-weather) and made it readily available on WeatherUnderground.com.  The weather data includes information on temperature, dew point, humidity, sea level, visibility, and wind.  Events such as thunderstorms, fog, and rain are also noted.   
 
 ### Data Preparation
 In a first step to make good recommendations, we remove any movie that has less than 5 reviews. Then, we normalize our ratings by using the mean rates for each user. Using the normalized ratings, we come up with a list of the 1,500 highest rated moves that will be our available movie set ready for recommending. This reduces the movies we have available from nearly 10,000 to 1,500 based on their ratings.
